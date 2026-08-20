@@ -1,0 +1,34 @@
+# Client/raw data
+/data/raw/*
+!/data/raw/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/external/*
+!/data/external/.gitkeep
+
+# Generated outputs
+/outputs/reports/*
+!/outputs/reports/.gitkeep
+/outputs/dashboard/*
+!/outputs/dashboard/.gitkeep
+/outputs/figures/*
+!/outputs/figures/.gitkeep
+/outputs/tables/*
+!/outputs/tables/.gitkeep
+/outputs/qa/*
+!/outputs/qa/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Credentials and local overrides
+.env
+*.key
+*.pem
+config/*_local.yaml

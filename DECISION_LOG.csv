@@ -1,0 +1,5 @@
+decision_id,date,topic,decision,alternatives_considered,rationale,owner,approver,status,revisit_trigger,evidence_location
+D-001,2026-08-20,Scope,"OPEN: one client with 1-2 campaigns versus two clients",,,Sponsor,,Open,,
+D-002,2026-08-20,Search geography,"Estimate lift only at the smallest stable supported parent geography; ZIP remains delivery/display layer","ZIP-level lift","Public Trends is not a defensible ZIP time-series source",Methods reviewer,Sponsor,Proposed,"Approved licensed ZIP-level source becomes available",docs/handoff/README.md
+D-003,2026-08-20,Treatment,"Use actual delivered exposure rather than targeted ZIP list","Targeted geography","Targeting does not prove comparable exposure",Ad ops/data owner,Methods reviewer,Proposed,"Actual delivery unavailable",docs/handoff/README.md
+D-004,2026-08-20,Dashboard,"One reusable dashboard with client/campaign configuration","Two separate applications","Prevents calculation drift and reduces maintenance",Dashboard owner,Sponsor,Proposed,"Security or platform requires isolated deployments",docs/handoff/README.md
