@@ -1,0 +1,100 @@
+project:
+  project_id: halo_case_study
+  run_mode: feasibility
+  analyst: REPLACE_ME
+  methods_reviewer: REPLACE_ME
+
+client:
+  alias: CLIENT_A
+  campaign_id: CAMPAIGN_001
+  campaign_name_internal: REPLACE_ME
+
+campaign:
+  planned_start: YYYY-MM-DD
+  planned_end: YYYY-MM-DD
+  material_delivery_start_rule: first_week_above_threshold
+  channels: []
+  primary_kpi: branded_search_interest
+
+analysis_window:
+  pre_start: YYYY-MM-DD
+  campaign_start: YYYY-MM-DD
+  campaign_end: YYYY-MM-DD
+  carryover_end: YYYY-MM-DD
+  time_grain: week
+  event_study_reference_week: -1
+
+search:
+  source: google_trends
+  access_method: manual_export_or_alpha_api
+  country: US
+  search_type: web
+  category_filter: 0
+  analysis_geo_level: REPLACE_ME
+  brand_basket_id: BRAND_V1
+  category_basket_id: CATEGORY_V1
+  negative_control_basket_id: NEGATIVE_V1
+  repeated_pull_count: 5
+  aggregation_rule: median_by_geo_week
+  max_zero_rate: REPLACE_ME
+  min_replicate_correlation: REPLACE_ME
+
+geography:
+  delivery_geo_type: ZIP
+  mapping_release: REPLACE_ME
+  analysis_geo_type: REPLACE_ME
+  minimum_mapping_coverage: REPLACE_ME
+  spillover_buffer_rule: REPLACE_ME
+  treated_geo_ids: []
+  control_geo_ids: []
+
+exposure:
+  binary_measure: impressions_per_1000_households
+  treatment_threshold: REPLACE_ME
+  continuous_measure: log1p_impressions_per_1000_households
+  weight_bins:
+    - label: very_low
+      lower: 0
+      upper: REPLACE_ME
+    - label: low
+      lower: REPLACE_ME
+      upper: REPLACE_ME
+    - label: medium
+      lower: REPLACE_ME
+      upper: REPLACE_ME
+    - label: high
+      lower: REPLACE_ME
+      upper: null
+
+model:
+  primary_estimand: ATT_post
+  estimator_branch: REPLACE_ME
+  outcome_transform: log_brand_to_category_ratio
+  fixed_effects:
+    geography: true
+    week: true
+  covariates: []
+  inference_method: cluster_by_geography
+  random_seed: 20260820
+
+validation:
+  require_event_study: true
+  require_time_placebo: true
+  require_space_placebo: true
+  require_alt_query: true
+  require_alt_controls: true
+  require_alt_window: true
+  require_leave_one_geo_out: true
+  require_spillover_audit: true
+  secondary_outcome: REPLACE_ME
+
+reporting:
+  evidence_tier: UNASSIGNED
+  client_safe: false
+  rounding_digits: 1
+  display_metric: relative_branded_search_lift
+  prohibited_phrases:
+    - ZIP-level search lift
+    - absolute searches generated
+    - organic clicks caused
+    - sales caused by search lift
